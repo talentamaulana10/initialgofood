@@ -1,15 +1,21 @@
-import React, { Component } from 'react';
-import Header from './components/header/header';
-import Gojek from './components/gojek/gojek';
-import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import React, { Component } from "react";
+import { Switch, Route } from "react-router-dom";
+import "./App.css";
+import Home from "./containers/home/home";
+import DashResto from "./containers/dashResto/dashResto";
+import DashFood from "./containers/dashFood/DashFood";
+import Checkout from "./containers/checkut/Checkout";
 
 class App extends Component {
   render() {
     return (
       <div>
-        <Header />
-        <Gojek />
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/restos" exact component={DashResto} />
+          <Route path="/chekout" exact component={Checkout} />
+          <Route path="/restos/:id" component={DashFood} />
+        </Switch>
       </div>
     );
   }
